@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Guestbook | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div id="content" class="guestbook">
+        <div class="frame group">
+            <h1>Guestbook</h1>
+            <ul id="comment-list">
+                <li class="add-comment group disabled">
+                    <div id="comment-modal" class="disabled">Please hold&hellip;</div>
+                    <form action="/guestbook/post/" method="post" id="add-comment-form">
+                        <dt>
+                            <input type="text" name="id_name" id="name" value="Your name">
+                        </dt>
+                        <dd>
+                            <p>
+                                <textarea name="id_comment" id="comment">Your comment</textarea>
+                                <input type="submit" value="Add comment" id="submit">
+                            </p>
+                        </dd>
+                    </form>
+                </li>
+                {% for comment in comments %}
+                    <li class="group">
+                        <dt>
+                            {{ comment.name }}
+                            <span>On {{ comment.created|date:"M j" }} at {{ comment.created|date:"g A" }}</span>
+                        </dt>
+                        <dd>
+                            {{ comment.comment|linebreaks }}
+                        </dd>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://nickandashley.s3.amazonaws.com/jquery.tablesorter.css" type="text/css">
+{% endblock %}
+
+{% block js %}
+    <script src="https://nickandashley.s3.amazonaws.com/jquery.tablesorter.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("table").tablesorter({
+                sortList: [[1, 0]]
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block title %}Final Guest List | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="frame group export">
+            <h1>Final Guest List</h1>
+            <div class="about-module group last" style="color: black; font-size: 14px;">
+                <div class="totals">
+                    Total Guests: <strong>{{ total }}</strong><br />
+                    Total Prime Rib: <strong>{{ prime_rib }}</strong><br />
+                    Total Chicken: <strong>{{ chicken }}</strong><br />
+                    Total Haddock: <strong>{{ haddock }}</strong><br />
+                    Total Pasta: <strong>{{ pasta }}</strong><br />
+                    Total Chicken Fingers: <strong>{{ chicken_fingers }}</strong><br /><br />
+                    Total Over 21: <strong>{{ over_21 }}</strong><br /><br />
+                </div>
+                <table cellspacing="1" cellpadding="0" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Meal</th>
+                            <th>Over 21?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rsvp in rsvps %}
+                            <tr>
+                                <td>{{ rsvp.guest_1_first_name }}</td>
+                                <td>{{ rsvp.guest_1_last_name }}</td>
+                                <td>{{ rsvp.get_guest_1_meal_display }}</td>
+                                <td>{{ rsvp.guest_1_over_21 }}</td>
+                            </tr>
+                            {% if rsvp.guest_2_first_name %}
+                                <tr>
+                                    <td>{{ rsvp.guest_2_first_name }}</td>
+                                    <td>{{ rsvp.guest_2_last_name }}</td>
+                                    <td>{{ rsvp.get_guest_2_meal_display }}</td>
+                                    <td>{{ rsvp.guest_2_over_21 }}</td>
+                                </tr>
+                            {% endif %}
+                            {% if rsvp.guest_3_first_name %}
+                                <tr>
+                                    <td>{{ rsvp.guest_3_first_name }}</td>
+                                    <td>{{ rsvp.guest_3_last_name }}</td>
+                                    <td>{{ rsvp.get_guest_3_meal_display }}</td>
+                                    <td>{{ rsvp.guest_3_over_21 }}</td>
+                                </tr>
+                            {% endif %}
+                            {% if rsvp.guest_4_first_name %}
+                                <tr>
+                                    <td>{{ rsvp.guest_4_first_name }}</td>
+                                    <td>{{ rsvp.guest_4_last_name }}</td>
+                                    <td>{{ rsvp.get_guest_4_meal_display }}</td>
+                                    <td>{{ rsvp.guest_4_over_21 }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

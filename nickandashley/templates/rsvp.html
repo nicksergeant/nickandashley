@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}RSVP | {{ block.super }}{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        var submitted = {% if request.POST %}true{% else %}false{% endif %};
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="rsvp">
+        <div class="frame group">
+            <h1>RSVP</h1>
+            <div class="about-module group last">
+                <form action="" method="post" accept-charset="utf-8" id="rsvp-form">
+                    {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
+                    {% if form.errors %}<h4 class="error">Please correct the errors below.</h4>{% endif %}
+                    <fieldset id="meta">
+                        <div class="field attending group{% if form.attending.errors %} error{% endif %}">
+                            <label style="width: 100%;">Sorry, RSVPs are no longer being accepted.</label>
+                            <div class="disabled"><label for="id_attending">Will you be attending?</label> {{ form.attending.as_widget }}</div>
+                        </div>
+                        <div class="disabled your-phone field group{% if form.phone_number.errors %} error{% endif %}">
+                            <label for="id_phone_number">Your phone number:</label> {{ form.phone_number.as_widget }}
+                        </div>
+                        <div class="disabled your-email field group{% if form.email.errors %} error{% endif %}">
+                            <label for="id_email">Your email (optional):</label> {{ form.email.as_widget }}
+                        </div>
+                        <div class="number_of_guests disabled field group{% if form.number_of_guests.errors %} error{% endif %}">
+                            <label for="id_number_of_guests">Number attending:</label> {{ form.number_of_guests.as_widget }}
+                        </div>
+                    </fieldset>
+                    <div class="guests disabled group">
+                        <fieldset class="disabled guest" id="guest-1">
+                            <div class="guest-inner">
+                                <div class="legend">Guest 1</div>
+                                <div id="guest-1-first-name" class="field{% if form.guest_1_first_name.errors %} error{% endif %}">
+                                    <label for="id_guest_1_first_name">First name</label> {{ form.guest_1_first_name.as_widget }}
+                                </div>
+                                <div id="guest-1-last-name" class="field{% if form.guest_1_last_name.errors %} error{% endif %}">
+                                    <label for="id_guest_1_last_name">Last name</label> {{ form.guest_1_last_name.as_widget }}
+                                </div>
+                                <div class="guest_1_meal field{% if form.guest_1_meal.errors %} error{% endif %}">
+                                    <label for="id_guest_1_meal">Entrée <a href="#" class="entree-options">Menu Info +</a></label> {{ form.guest_1_meal.as_widget }}
+                                </div>
+                                <div class="guest_1_over_21 field over21 group{% if form.guest_1_over_21.errors %} error{% endif %}">
+                                    {{ form.guest_1_over_21.as_widget }}<label for="id_guest_1_over_21">Over 21?</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="guest disabled" id="guest-2">
+                            <div class="guest-inner">
+                                <div class="legend">Guest 2</div>
+                                <div class="field{% if form.guest_2_first_name.errors %} error{% endif %}">
+                                    <label for="id_guest_2_first_name">First name</label> {{ form.guest_2_first_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_2_last_name.errors %} error{% endif %}">
+                                    <label for="id_guest_2_last_name">Last name</label> {{ form.guest_2_last_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_2_meal.errors %} error{% endif %}">
+                                    <label for="id_guest_2_meal">Entrée <a href="#" class="entree-options">Menu Info +</a></label> {{ form.guest_2_meal.as_widget }}
+                                </div>
+                                <div class="field over21 group{% if form.guest_2_over_21.errors %} error{% endif %}">
+                                    {{ form.guest_2_over_21.as_widget }}<label for="id_guest_2_over_21">Over 21?</label> 
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="guest disabled" id="guest-3">
+                            <div class="guest-inner">
+                                <div class="legend">Guest 3</div>
+                                <div class="field{% if form.guest_3_first_name.errors %} error{% endif %}">
+                                    <label for="id_guest_3_first_name">First name</label> {{ form.guest_3_first_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_3_last_name.errors %} error{% endif %}">
+                                    <label for="id_guest_3_last_name">Last name</label> {{ form.guest_3_last_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_3_meal.errors %} error{% endif %}">
+                                    <label for="id_guest_3_meal">Entrée <a href="#" class="entree-options">Menu Info +</a></label> {{ form.guest_3_meal.as_widget }}
+                                </div>
+                                <div class="field over21 group{% if form.guest_3_over_21.errors %} error{% endif %}">
+                                    {{ form.guest_3_over_21.as_widget }}<label for="id_guest_3_over_21">Over 21</label> 
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="guest disabled" id="guest-4">
+                            <div class="guest-inner">
+                                <div class="legend">Guest 4</div>
+                                <div class="field{% if form.guest_4_first_name.errors %} error{% endif %}">
+                                    <label for="id_guest_4_first_name">First name</label> {{ form.guest_4_first_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_4_last_name.errors %} error{% endif %}">
+                                    <label for="id_guest_4_last_name">Last name</label> {{ form.guest_4_last_name.as_widget }}
+                                </div>
+                                <div class="field{% if form.guest_4_meal.errors %} error{% endif %}">
+                                    <label for="id_guest_4_meal">Entrée <a href="#" class="entree-options">Menu Info +</a></label> {{ form.guest_4_meal.as_widget }}
+                                </div>
+                                <div class="field over21 group{% if form.guest_4_over_21.errors %} error{% endif %}">
+                                    {{ form.guest_4_over_21.as_widget }}<label for="id_guest_4_over_21">Over 21?</label> 
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <p class="disabled group" id="submit">
+                        <input type="submit" value="Submit">
+                        <a href="#" onclick="document.getElementById('rsvp-form').submit(); return false;">Submit your RSVP &raquo;</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="disabled">
+        <div id="entree-options-content" class="colorbox">
+            <div class="content">
+                <h1>Entree Options</h1>
+                <h2>Black Angus Prime Rib</h2>
+                <p>Aged prime rib that is slow roasted with special herbs and seasonings. Topped with au jus and mushrooms.</p>
+                <h2>Stuffed Chicken Breast</h2>
+                <p>Boneless chicken breast stuffed with an old fashioned bread stuffing.</p>
+                <h2>Stuffed Haddock</h2>
+                <p>Haddock filets stuffed with shrimp and crab meat broiled to perfection and topped with a shrimp bisque sauce.</p>
+                <h2>Penne in Pomodoro</h2>
+                <p>Penne pasta tossed in Ventosa's homemade pomodora sauce.</p>
+                <h2>Kids Chicken Fingers</h2>
+                <p>Yummy little chicken fingers for the kidlets.</p>
+                <p class="all-include">All entrées include rolls and coffee service. Entrées are served with garlic smashed potatoes &amp; seasoned green beans.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

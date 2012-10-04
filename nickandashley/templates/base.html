@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Custom font 'Hit the Road' graciously designed and provided for free by Matthew Welch (http://squaregear.net/fonts). -->
+
+    <title>{% block title %}Nick and Ashley{% endblock %}</title>
+
+    <meta name="language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <link rel="stylesheet" href="https://nickandashley.s3.amazonaws.com/style.css" type="text/css">
+    <link rel="stylesheet" href="https://nickandashley.s3.amazonaws.com/colorbox.css" type="text/css">
+    {% block css %}{% endblock %}
+    <script src="https://nickandashley.s3.amazonaws.com/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://nickandashley.s3.amazonaws.com/jquery.colorbox.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://nickandashley.s3.amazonaws.com/script.js" type="text/javascript" charset="utf-8"></script>
+    {% block js %}{% endblock %}
+
+    <!--[if IE]>
+        <style type="text/css">
+            html { overflow-y: auto; }
+            .wedding-date { letter-spacing: .059em; }
+            .wedding-party ul li .bio { background-color: rgb(0, 0, 0); }
+        </style>
+    <![endif]-->
+    <!--[if IE 6]>
+        <script type="text/javascript" src="https://nickandashley.s3.amazonaws.com/iepngfix.js"></script>
+        <style type="text/css">* { behavior: url('https://nickandashley.s3.amazonaws.com/iepngfix.htc'); }</style>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="header">
+        <div class="frame group">
+            <div id="logo" class="group">
+                <a href="/" title="Home | Nick and Ashley">&nbsp;<img src="https://nickandashley.s3.amazonaws.com/images/logo.png" alt="Home | Nick and Ashley" title="Home | Nick and Ashley"></a>
+            </div>
+            <ul id="nav">
+                <li><a class="first{% ifequal request.path '/' %} active{% endifequal %}" href="/">Home</a></li>
+                <li><a {% ifequal request.path '/about-us/' %}class="active"{% endifequal %} href="/about-us">About Us</a></li>
+                <li><a {% ifequal request.path '/wedding-party/' %}class="active"{% endifequal %} href="/wedding-party">Wedding Party</a></li>
+                <li><a {% ifequal request.path '/the-events/' %}class="active"{% endifequal %} href="/the-events">The Events</a></li>
+                <li><a {% ifequal request.path '/accommodations/' %}class="active"{% endifequal %} href="/accommodations">Accommodations</a></li>
+                <li><a class="last{% ifequal request.path '/registry/' %} active{% endifequal %}" href="/registry">Registry</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="wedding-info">
+        <div class="frame group">
+            <div class="locations">
+                <div class="ceremony location">St. Mary's Church, Canandaigua, NY</div>
+                <div class="reception location">Ventosa Vineyards, Geneva, NY</div>
+            </div>
+            <div class="wedding-date">10<em>/</em>9<em>/</em>10</div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    <div id="footer">
+        <div class="frame group">
+            <div class="sections group">
+                <div class="section">
+                    <a href="/guestbook" class="guestbook">
+                        The Guestbook <img src="https://nickandashley.s3.amazonaws.com/images/arrow.gif" alt="The Guestbook" title="The Guestbook">
+                        <span>Say something nice, or don't say anything at all.</span>
+                    </a>
+                </div>
+                <div class="section">
+                    <a href="mailto:nick@nicksergeant.com" class="contact-us" id="contact-us">
+                        Contact Us <img src="https://nickandashley.s3.amazonaws.com/images/arrow.gif" alt="Contact Us" title="Contact Us">
+                        <span>Drop us a line and we just might get back to you.</span>
+                    </a>
+                </div>
+                <div class="last section">
+                    <a href="/rsvp" class="rsvp-button">
+                        RSVP Here <img src="https://nickandashley.s3.amazonaws.com/images/arrow.gif" alt="Stay Updated" title="Stay Updated">
+                        <span>Receive an invite? You can RSVP here.</span>
+                    </a>
+                </div>
+            </div>
+            <a class="props group" href="http://nicksergeant.com">
+                designed &amp; built by <span>nick sergeant</span>.
+            </a>
+        </div>
+    </div>
+    
+    <div class="disabled">
+        <div id="contact-us-content" class="colorbox">
+            <div class="content">
+                <h1>Contact Us</h1>
+                <div id="contact-modal" class="disabled">Please hold&hellip;</div>
+                <form action="/contact-us/post/" method="post" id="contact-form">
+                    <div class="fields group">
+                        <div class="field group"><label for="id_name">Name: </label><input type="text" maxlength="255" name="name" id="name"></div>
+                        <div class="field group"><label for="id_email">Email: </label><input type="text" maxlength="75" name="email" id="email"></div>
+                        <div class="field group"><label for="id_message">Message: </label><textarea name="message" cols="40" rows="10" id="message"></textarea></div>
+                        <div class="field group"><label for="human">What is 10 minus 3? </label><input type="text" maxlength="75" name="human" id="human"></div>
+                    </div>
+                    <input type="submit" value="Send Message" id="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+             var t   = document.createElement('script');
+             t.type  = 'text/javascript';
+             t.async = true;
+             t.id    = 'gauges-tracker';
+             t.setAttribute('data-site-id', '4f515325613f5d323200003c');
+             t.src = '//secure.gaug.es/track.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(t, s);
+         })();
+     </script>
+</body>
+
+</html>

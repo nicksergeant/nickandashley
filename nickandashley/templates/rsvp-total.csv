@@ -1,0 +1,95 @@
+{% for rsvp in rsvps %}
+{{ rsvp.guest_1_first_name }} {{ rsvp.guest_1_last_name }},{{ rsvp.guest_1_meal_choice }},{{ rsvp.guest_1_table }}{% if rsvp.guest_2_first_name %}
+{{ rsvp.guest_2_first_name }} {{ rsvp.guest_2_last_name }},{{ rsvp.guest_2_meal_choice }},{{ rsvp.guest_2_table }}{% endif %}{% if rsvp.guest_3_first_name %}
+{{ rsvp.guest_3_first_name }} {{ rsvp.guest_3_last_name }},{{ rsvp.guest_3_meal_choice }},{{ rsvp.guest_3_table }}{% endif %}{% if rsvp.guest_4_first_name %}
+{{ rsvp.guest_4_first_name }} {{ rsvp.guest_4_last_name }},{{ rsvp.guest_4_meal_choice }},{{ rsvp.guest_4_table }}{% endif %}{% endfor %}
+
+
+
+
+<br /><br /><br /><br />
+Total seated (not including wedding table or vendors): <strong>{{ seated }}</strong><br /><br />
+<strong>Table 1 ({{ table_1|length }})</strong>
+<ul>
+    {% for p in table_1 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 2 ({{ table_2|length }})</strong>
+<ul>
+    {% for p in table_2 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 3 ({{ table_3|length }})</strong>
+<ul>
+    {% for p in table_3 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 4 ({{ table_4|length }})</strong>
+<ul>
+    {% for p in table_4 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 5 ({{ table_5|length }})</strong>
+<ul>
+    {% for p in table_5 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 6 ({{ table_6|length }})</strong>
+<ul>
+    {% for p in table_6 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 7 ({{ table_7|length }})</strong>
+<ul>
+    {% for p in table_7 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 8 ({{ table_8|length }})</strong>
+<ul>
+    {% for p in table_8 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 9 ({{ table_9|length }})</strong>
+<ul>
+    {% for p in table_9 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 10 ({{ table_10|length }})</strong>
+<ul>
+    {% for p in table_10 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 11 ({{ table_11|length }})</strong>
+<ul>
+    {% for p in table_11 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 12 ({{ table_12|length }})</strong>
+<ul>
+    {% for p in table_12 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 13 ({{ table_13|length }})</strong>
+<ul>
+    {% for p in table_13 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+<strong>Table 14 ({{ table_14|length }})</strong>
+<ul>
+    {% for p in table_14 %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
