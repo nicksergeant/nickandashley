@@ -1,7 +1,7 @@
 # Django settings for nickandashley project.
 import os, os.path, socket
 
-DEBUG = True
+DEBUG = False
 
 BASE_PATH = os.path.dirname(__file__)
 
