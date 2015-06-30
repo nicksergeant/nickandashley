@@ -1,5 +1,5 @@
 # Django settings for nickandashley project.
-import os.path, socket
+import os, os.path, socket
 
 DEBUG = True
 
@@ -18,8 +18,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nickandashley',
         'USER': 'nickandashley',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'PASSWORD': os.environ['PSQL_PASSWORD'],
+        'HOST': '45.79.166.1',
         'PORT': '5432',
     }
 }
