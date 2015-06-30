@@ -99,6 +99,3 @@ INSTALLED_APPS = (
 
 COMPRESS_OUTPUT_DIR = "cache"
 COMPRESS = True
-
-if DEBUG:
-    INSTALLED_APPS += ('django_extensions',)
