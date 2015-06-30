@@ -19,7 +19,7 @@ DATABASES = {
         'NAME': 'nickandashley',
         'USER': 'nickandashley',
         'PASSWORD': os.environ['PSQL_PASSWORD'],
-        'HOST': '45.79.166.1',
+        'HOST': '172.17.42.1',
         'PORT': '5432',
     }
 }
