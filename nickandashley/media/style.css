@@ -18,7 +18,7 @@ blockquote, q { quotes: "" ""; }
 @font-face {
     font-family: 'Hit the Road';
     src: url('https://nickandashley.com/media/hit-the-road-webfont.eot');
-    src: local('☺'), url('https://nickandashley.com/media/hit-the-road-webfont.woff') format('woff'), url('http://nickandashley.com/media/hit-the-road-webfont.ttf') format('truetype'), url('http://nickandashley.com/media/hit-the-road-webfont.svg#webfontmDf3v98m') format('svg');
+    src: local('☺'), url('https://nickandashley.com/media/hit-the-road-webfont.woff') format('woff'), url('https://nickandashley.com/media/hit-the-road-webfont.ttf') format('truetype'), url('https://nickandashley.com/media/hit-the-road-webfont.svg#webfontmDf3v98m') format('svg');
     font-weight: normal;
     font-style: normal;
 }
