@@ -63,7 +63,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
+    "django.core.context_processors.static",
 )
+
+STATIC_URL = '/wat'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -88,6 +91,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.staticfiles',
     'django.contrib.sessions',
     'django.contrib.sites',
     'nickandashley.guestbook',
