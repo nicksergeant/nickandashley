@@ -1,4 +1,5 @@
 # Django settings for nickandashley project.
+import dj_database_url
 import os, os.path, socket
 
 DEBUG = True
@@ -13,16 +14,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'nickandashley',
-        'USER': 'nickandashley',
-        'PASSWORD': os.environ['PSQL_PASSWORD'],
-        'HOST': '45.79.167.199',
-        'PORT': '5432',
-    }
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

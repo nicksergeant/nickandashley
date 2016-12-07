@@ -1,4 +1,5 @@
 BeautifulSoup
+dj-database-url
 django-css
 Django==1.3
 gunicorn==0.12.2
