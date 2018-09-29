@@ -1,4 +1,4 @@
 deploy:
-	git push heroku
+	git push dokku
 
 .PHONY: deploy
